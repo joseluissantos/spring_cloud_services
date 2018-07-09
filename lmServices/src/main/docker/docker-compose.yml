@@ -1,0 +1,6 @@
+version: '3'
+services:
+  eureka:
+    build: .
+    ports:
+     - "5000:8761"  
