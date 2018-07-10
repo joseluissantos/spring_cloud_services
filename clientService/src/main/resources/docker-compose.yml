@@ -1,0 +1,18 @@
+version: "2" 
+services:
+  eureka:
+    image: santos/eureka
+    ports:
+      - 8761:8761
+    environment:
+      SERVICE_HOST: localhost
+      SERVICE_PORT: 8761
+  
+  clientService:
+    image: santos/cliente
+    ports:
+      - 8080:8080
+    environment:
+      SERVICE_PORT: 8080
+      REGISTRY_URL: http://localhost:8761/eureka
+      
