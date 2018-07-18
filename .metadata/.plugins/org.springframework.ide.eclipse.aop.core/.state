@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="demokubernete-backend"/>
+<aop-project name="lmServices"/>
+<aop-project name="clientService"/>
+<aop-project name="demokubernete-frontend"/>
+<aop-project name="spring-config"/>
+</aop-reference-model>

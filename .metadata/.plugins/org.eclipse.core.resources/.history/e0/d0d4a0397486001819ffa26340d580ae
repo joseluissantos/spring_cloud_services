@@ -1,0 +1,35 @@
+#Service
+kind: Service
+apiVersion: v1
+metadata:
+  name: demokubernete-frontend
+spec:
+  selector:
+    app: demokubernete-frontend
+  ports:
+  - protocol: TCP
+    port: 8004
+  type: NodePort #NodePort indicates that service is available from outside of the cluster, this will let access to the service through web browser
+  
+---
+#Deployment 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-backend
+spec:
+  selector:
+      matchLabels:
+        app: demo-backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: demo-backend
+    spec:
+      containers:
+        - name: demo-backend
+          image: demo-backend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
